@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "dev": "node --env-file=.env --watch -r ts-node/register src/main.ts"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --env-file=.env --watch -r ts-node/register src/main.ts",
+    "start": "node dist/main.js",
+    "generate": "drizzle-kit generate",
+    "migrate": "tsx src/db/migrate.ts"
   },
   "engines": {
     "node": ">=20.6.0"
@@ -16,13 +19,17 @@
   "description": "",
   "dependencies": {
     "archiver": "^7.0.1",
+    "better-sqlite3": "^11.8.1",
     "cheerio": "^1.0.0",
+    "drizzle-orm": "^0.39.1",
     "node-fetch": "^3.3.2",
     "playwright": "^1.50.0",
     "unzipper": "^0.12.3"
   },
   "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
     "@types/node": "^22.12.0",
+    "drizzle-kit": "^0.30.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
   }
