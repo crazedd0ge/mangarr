@@ -21,7 +21,10 @@ builder.Services.AddScoped<IDbConnection>(provider =>
     return new NpgsqlConnection(connectionString);
 });
 
+builder.WebHost.UseUrls("http://localhost:5000");
+
 builder.Services.AddScoped<IMangaWorker, MangaWorker>();
+builder.Services.AddScoped<IMangaService, MangaService>();
 
 var app = builder.Build();
 

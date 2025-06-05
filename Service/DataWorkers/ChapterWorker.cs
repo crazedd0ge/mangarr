@@ -1,4 +1,5 @@
 using System.Data;
+using Dapper;
 using Service.Models;
 using Service.Models.Reqests;
 
@@ -13,28 +14,61 @@ public class ChapterWorker : IChapterWorker
         _connection = connection;
     }
 
-    public async Task<Volume> CreateChapter(ChapterRequest data)
+
+    public async Task<IEnumerable<Chapter>?> GetChaptersByManga(long id)
     {
-        throw new NotImplementedException();
+        var response = await _connection.QueryAsync<Chapter>(SqlScripts.Chapters.GetByMangaId, id);
+
+        return response;
+    }
+
+    public async Task<IEnumerable<Chapter>?> GetChaptersByVolume(long id)
+    {
+        var response = await _connection.QueryAsync<Chapter>(SqlScripts.Chapters.GetByVolumeId, id);
+
+        return response;
+    }
+
+    public async Task<Volume?> CreateChapter(ChapterRequest data)
+    {
+        var response = (await _connection.QueryAsync<Volume>(SqlScripts.Chapters.Insert, new
+        {
+            data.MangaId,
+            data.VolumeId,
+            data.ChapterKeyword,
+            data.ChapterNumber,
+            data.Title,
+            data.Url,
+            data.Downloaded,
+            CreatedAt = DateTime.Now,
+            UpdatedAt = DateTime.Now
+        })).FirstOrDefault();
+
+        return response;
+    }
+
+    public async Task<Volume?> UpdateChapter(ChapterUpdateRequest data)
+    {
+        var response = (await _connection.QueryAsync<Volume>(SqlScripts.Chapters.Update, new
+        {
+            data.Id,
+            data.ChapterKeyword,
+            data.ChapterNumber,
+            data.Title,
+            data.Url,
+            data.Downloaded,
+            CreatedAt = DateTime.Now,
+            UpdatedAt = DateTime.Now
+        })).FirstOrDefault();
+
+        return response;
     }
 
     public async Task<long> DeleteChapter(long id)
     {
-        throw new NotImplementedException();
+        return (await _connection.QueryAsync<long>(SqlScripts.Chapters.Delete, id)).FirstOrDefault();
     }
 
-    public async Task<IEnumerable<Chapter>> GetChaptersByManga(long id)
-    {
-        throw new NotImplementedException();
-    }
 
-    public async Task<IEnumerable<Chapter>> GetChaptersByVolume(long id)
-    {
-        throw new NotImplementedException();
-    }
 
-    public async Task<Volume> UpdateChapter(ChapterUpdateRequest data)
-    {
-        throw new NotImplementedException();
-    }
 }

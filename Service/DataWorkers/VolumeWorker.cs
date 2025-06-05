@@ -1,4 +1,5 @@
 using System.Data;
+using Dapper;
 using Service.Models;
 using Service.Models.Reqests;
 
@@ -13,28 +14,61 @@ public class VolumeWorker : IVolumeWorker
         _connection = connection;
     }
 
-    public async Task<Volume> CreateVolume(VolumeRequest data)
+    public async Task<Volume?> GetVolumeById(long id)
     {
-        throw new NotImplementedException();
+        var response = (await _connection.QueryAsync<Volume?>(SqlScripts.Volumes.GetById, id)).FirstOrDefault();
+
+        return response;
     }
 
-    public async Task<bool> DeleteVolume(long id)
+    public async Task<IEnumerable<Volume>?> GetVolumesByManga(long mangaId)
     {
-        throw new NotImplementedException();
+        var response = await _connection.QueryAsync<Volume>(SqlScripts.Volumes.GetByMangaId, mangaId);
+
+        return response;
     }
 
-    public async Task<Volume> GetVolumeById(long id)
+    public async Task<Volume?> CreateVolume(VolumeRequest data)
     {
-        throw new NotImplementedException();
+        var response = (await _connection.QueryAsync<Volume?>(SqlScripts.Volumes.Insert, new
+        {
+            data.MangaId,
+            data.VolumeNumber,
+            data.Title,
+            data.Url,
+            data.Description,
+            data.CoverImage,
+            data.Complete,
+            CreatedAt = DateTime.Now,
+            UpdatedAt = DateTime.Now
+        })).FirstOrDefault();
+
+        return response;
     }
 
-    public async Task<IEnumerable<Volume>> GetVolumesByManga(long mangaId)
+    public async Task<Volume?> UpdateVolume(VolumeUpdateRequest data)
     {
-        throw new NotImplementedException();
+        var response = (await _connection.QueryAsync<Volume?>(SqlScripts.Volumes.Update, new
+        {
+            data.Id,
+            data.MangaId,
+            data.VolumeNumber,
+            data.Title,
+            data.Url,
+            data.Description,
+            data.CoverImage,
+            data.Complete,
+            CreatedAt = DateTime.Now,
+            UpdatedAt = DateTime.Now
+        })).FirstOrDefault();
+
+        return response;
     }
 
-    public async Task<Volume> UpdateVolume(VolumeUpdateRequest data)
+    public async Task<long?> DeleteVolume(long id)
     {
-        throw new NotImplementedException();
+        var response = (await _connection.QueryAsync<long?>(SqlScripts.Manga.Update, id)).FirstOrDefault();
+
+        return response;
     }
 }

@@ -632,19 +632,19 @@
     ]
   },
   "packageFolders": {
-    "/home/luke/.nuget/packages/": {}
+    "/home/vscode/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/luke/Documents/Repos/mangarr/Service/Service.csproj",
+      "projectUniqueName": "/workspaces/mangarr/Service/Service.csproj",
       "projectName": "Service",
-      "projectPath": "/home/luke/Documents/Repos/mangarr/Service/Service.csproj",
-      "packagesPath": "/home/luke/.nuget/packages/",
-      "outputPath": "/home/luke/Documents/Repos/mangarr/Service/obj/",
+      "projectPath": "/workspaces/mangarr/Service/Service.csproj",
+      "packagesPath": "/home/vscode/.nuget/packages/",
+      "outputPath": "/workspaces/mangarr/Service/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/luke/.nuget/NuGet/NuGet.Config"
+        "/home/vscode/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -668,7 +668,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net9.0": {
@@ -698,12 +698,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[9.0.4, 9.0.4]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -712,7 +706,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.105/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

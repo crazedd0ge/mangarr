@@ -109,17 +109,17 @@ public static class SqlScripts
     public static class Manga
     {
         public const string GetAll = @"
-                SELECT id, title, url, description, cover_image, created_at, updated_at
+                SELECT id as Id, title as Title, url as Url, description as Description, cover_image as CoverImage, created_at as CreatedAt, updated_at as UpdatedAt
                 FROM manga
                 ORDER BY created_at DESC";
 
         public const string GetById = @"
-                SELECT id, title, url, description, cover_image, created_at, updated_at
+                SELECT id as Id, title as Title, url as Url, description as Description, cover_image as CoverImage, created_at as CreatedAt, updated_at as UpdatedAt
                 FROM manga
                 WHERE id = @Id";
 
         public const string GetByName = @"
-                SELECT id, title, url, description, cover_image, created_at, updated_at
+                SELECT id as Id, title as Title, url as Url, description as Description, cover_image as CoverImage, created_at as CreatedAt, updated_at as UpdatedAt
                 FROM manga
                 WHERE title = LIKE ''%|| @Name || '%'";
 
@@ -224,9 +224,14 @@ public static class SqlScripts
 
         public const string Update = @"
                 UPDATE chapters
-                SET manga_id = @MangaId, volume_id = @VolumeId, chapter_keyword = @ChapterKeyword,
-                    chapter_number = @ChapterNumber, title = @Title, url = @Url,
-                    downloaded = @Downloaded, updated_at = @UpdatedAt
+                        SET
+                                manga_id = coalesce(@MangaId,manga_id),
+                                volume_id = coalesce(@VolumeId, volume_id),
+                                chapter_keyword = coalesce(@ChapterKeyword,chapter_keyword),
+                                chapter_number = coalesce(@ChapterNumber,chapter_number),
+                                title = @Title, coalesce(url = @Url,title),
+                                downloaded = coalesce( @Downloaded,downloaded),
+                                updated_at = @UpdatedAt
                 WHERE id = @Id";
 
         public const string MarkAsDownloaded = @"
