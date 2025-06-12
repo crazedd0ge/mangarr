@@ -1,4 +1,4 @@
-namespace Service.Models.Reqests;
+namespace Service.Models.Requests;
 
 public class JobQueueUpdateRequest
 {

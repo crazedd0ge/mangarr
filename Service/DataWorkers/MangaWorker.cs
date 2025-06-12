@@ -1,6 +1,6 @@
 using System.Data;
 using Dapper;
-using Service.Models.Reqests;
+using Service.Models.Requests;
 
 namespace Service.DataWorkers;
 
@@ -22,7 +22,7 @@ public class MangaWorker : IMangaWorker
 
     public async Task<Manga?> GetMangaById(long id)
     {
-        
+
 
         var response = (await _connection.QueryAsync<Manga>(SqlScripts.Manga.GetById, id)).FirstOrDefault();
 

@@ -1,7 +1,7 @@
 using System.Data;
 using Dapper;
 using Microsoft.AspNetCore.Mvc;
-using Service.Models.Reqests;
+using Service.Models.Requests;
 
 namespace Service.Controllers;
 

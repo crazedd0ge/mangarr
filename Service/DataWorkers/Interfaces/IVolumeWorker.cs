@@ -1,5 +1,5 @@
 using Service.Models;
-using Service.Models.Reqests;
+using Service.Models.Requests;
 
 public interface IVolumeWorker
 {

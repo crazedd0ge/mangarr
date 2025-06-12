@@ -1,6 +1,6 @@
 
 
-using Service.Models.Reqests;
+using Service.Models.Requests;
 
 public class MangaService : IMangaService
 {

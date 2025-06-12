@@ -1,5 +1,5 @@
 using Service.Models;
-using Service.Models.Reqests;
+using Service.Models.Requests;
 
 namespace Service.DataWorkers.Interfaces;
 

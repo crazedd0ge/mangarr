@@ -1,7 +1,11 @@
-namespace Service.Models.Reqests;
+namespace Service.Models.Requests;
 
-public class MangaRequest
+public class VolumeUpdateRequest
 {
+    public int Id { get; set; }
+    public int? MangaId { get; set; }
+
+    public double? VolumeNumber { get; set; }
     public string? Title { get; set; }
     public string? Url { get; set; }
     public string? Description { get; set; }
