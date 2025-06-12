@@ -1,10 +1,5 @@
 using System.Data;
 using Dapper;
-using Service.Models;
-using Service.Models.Requests;
-
-namespace Service.DataWorkers;
-
 public class VolumeWorker : IVolumeWorker
 {
     private readonly IDbConnection _connection;

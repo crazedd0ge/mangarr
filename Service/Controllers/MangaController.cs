@@ -1,10 +1,4 @@
-using System.Data;
-using Dapper;
 using Microsoft.AspNetCore.Mvc;
-using Service.Models.Requests;
-
-namespace Service.Controllers;
-
 [ApiController]
 [Route("api/Manga")]
 public class MangaController : ControllerBase
@@ -19,7 +13,7 @@ public class MangaController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Manga>>> GetAllManga()
     {
-        var manga = await _mangaService.GetAllPartialManga();
+        var manga = await _mangaService.GetAllManga();
 
         return Ok(manga);
     }
@@ -28,7 +22,7 @@ public class MangaController : ControllerBase
     [Route("id/{id}")]
     public async Task<ActionResult<Manga?>> GetMangaById([FromRoute] long id)
     {
-        var manga = await _mangaService.GetPartialMangaById(id);
+        var manga = await _mangaService.GetMangaById(id);
 
         return Ok(manga);
     }
@@ -44,7 +38,7 @@ public class MangaController : ControllerBase
 
     [HttpPost]
     [Route("Create")]
-    public async Task<ActionResult<Manga?>> CreatePartialManga([FromBody] MangaRequest data)
+    public async Task<ActionResult<Manga?>> CreateManga([FromBody] MangaRequest data)
     {
         var manga = await _mangaService.CreateParitalManga(data);
 
@@ -53,9 +47,9 @@ public class MangaController : ControllerBase
 
     [HttpPost]
     [Route("Update")]
-    public async Task<ActionResult<Manga?>> UpdatePartialManga([FromBody] MangaUpdateRequest data)
+    public async Task<ActionResult<Manga?>> UpdateManga([FromBody] MangaUpdateRequest data)
     {
-        var manga = await _mangaService.UpdatePartialManga(data);
+        var manga = await _mangaService.UpdateManga(data);
 
         return manga;
     }

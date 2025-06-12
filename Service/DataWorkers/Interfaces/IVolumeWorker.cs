@@ -1,6 +1,3 @@
-using Service.Models;
-using Service.Models.Requests;
-
 public interface IVolumeWorker
 {
     Task<IEnumerable<Volume>?> GetVolumesByManga(long mangaId);

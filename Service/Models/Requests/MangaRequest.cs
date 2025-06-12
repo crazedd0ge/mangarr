@@ -1,5 +1,3 @@
-namespace Service.Models.Requests;
-
 public class MangaRequest
 {
     public string? Title { get; set; }

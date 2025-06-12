@@ -1,9 +1,5 @@
 using System.Data;
 using Dapper;
-using Service.Models.Requests;
-
-namespace Service.DataWorkers;
-
 public class MangaWorker : IMangaWorker
 {
     private readonly IDbConnection _connection;

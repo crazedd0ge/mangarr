@@ -1,5 +1,3 @@
-namespace Service.Models;
-
 public class JobQueue
 {
     public int Id { get; set; }

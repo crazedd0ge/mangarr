@@ -1,6 +1,3 @@
-using Service.Models;
-using Service.Models.Requests;
-
 public interface IChapterWorker
 {
     Task<IEnumerable<Chapter>?> GetChaptersByManga(long id);

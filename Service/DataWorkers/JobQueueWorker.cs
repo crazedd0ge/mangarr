@@ -1,10 +1,4 @@
 using System.Data;
-using Service.DataWorkers.Interfaces;
-using Service.Models;
-using Service.Models.Requests;
-
-namespace Service.DataWorkers;
-
 public class JobQueueWorker : IJobQueueWorker
 {
     private readonly IDbConnection _connection;

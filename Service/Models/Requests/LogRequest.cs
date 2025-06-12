@@ -1,5 +1,3 @@
-namespace Service.Models.Requests;
-
 public class LogRequest
 {
     public bool IsError { get; set; }

@@ -1,5 +1,3 @@
-using Service.Models.Requests;
-
 public interface IMangaWorker
 {
     Task<IEnumerable<Manga>> GetManga();

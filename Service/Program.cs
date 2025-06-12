@@ -1,6 +1,5 @@
 using System.Data;
 using Npgsql;
-using Service.DataWorkers;
 
 var builder = WebApplication.CreateBuilder(args);
 

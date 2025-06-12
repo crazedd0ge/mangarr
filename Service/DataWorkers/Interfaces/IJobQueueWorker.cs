@@ -1,8 +1,3 @@
-using Service.Models;
-using Service.Models.Requests;
-
-namespace Service.DataWorkers.Interfaces;
-
 public interface IJobQueueWorker
 {
     Task<IEnumerable<JobQueue>> GetJobs();

@@ -1,5 +1,3 @@
-namespace Service.Models;
-
 public class Log
 {
     public long id { get; set; }

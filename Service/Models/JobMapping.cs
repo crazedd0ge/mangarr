@@ -1,6 +1,3 @@
-namespace Service.Models;
-
-
 public class JobMapping
 {
     public int Id { get; set; }

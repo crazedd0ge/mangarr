@@ -1,5 +1,3 @@
-namespace Service.Models.Requests;
-
 public class VolumeUpdateRequest
 {
     public int Id { get; set; }

@@ -1,5 +1,3 @@
-namespace Service.Models;
-
 public class Volume
 {
     public int Id { get; set; }

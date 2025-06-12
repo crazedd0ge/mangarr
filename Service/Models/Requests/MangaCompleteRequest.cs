@@ -4,7 +4,6 @@ public class MangaCompleteRequest
 {
     public required MangaRequest Manga { get; set; }
     public required IEnumerable<VolumeData> VolumeMappings { get; set; }
-
 }
 
 public class VolumeData

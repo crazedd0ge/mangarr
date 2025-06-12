@@ -1,5 +1,3 @@
-namespace Service.Models.Requests;
-
 public class VolumeRequest
 {
     public int MangaId { get; set; }

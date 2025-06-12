@@ -1,5 +1,3 @@
-
-
 using Service.Models.Requests;
 
 public class MangaService : IMangaService
@@ -11,11 +9,11 @@ public class MangaService : IMangaService
         _mangaWorker = mangaWorker;
     }
 
-    public async Task<IEnumerable<Manga>?> GetAllPartialManga()
+    public async Task<IEnumerable<Manga>?> GetAllManga()
     {
         return await _mangaWorker.GetManga();
     }
-    public async Task<Manga?> GetPartialMangaById(long id)
+    public async Task<Manga?> GetMangaById(long id)
     {
         return await _mangaWorker.GetMangaById(id);
     }
@@ -30,8 +28,8 @@ public class MangaService : IMangaService
         return await _mangaWorker.CreateManga(data);
     }
 
-    public async Task<Manga?> UpdatePartialManga(MangaUpdateRequest daya)
+    public async Task<Manga?> UpdateManga(MangaUpdateRequest data)
     {
-        throw new NotImplementedException();
+        return await _mangaWorker.UpdateManga(data);
     }
 }

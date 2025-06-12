@@ -1,4 +1,4 @@
-namespace Service.Models.Response;
+using Service.Models;
 
 public class MangaResponse
 {

@@ -1,6 +1,3 @@
-using Service.Models;
-using Service.Models.Requests;
-
 public interface ILogWorker
 {
     Task<IEnumerable<Log>> GetErrorLogs(DateTime stateTime, DateTime endTime, string? searchTerm);
